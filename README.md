@@ -8,7 +8,7 @@ Example:
 term1
   
   ./serve ~/files  
-  👂  @ 8000  
+  👂  @ 10.0.13.136:8000  
   
   downloading  /Users/viresh/files/  
   downloading  /Users/viresh/files/test1  
