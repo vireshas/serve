@@ -23,8 +23,7 @@ func main() {
 		fmt.Println("downloading ", file)
 		http.ServeFile(w, r, file)
 	})
-	ip := getIP() 
-	fmt.Println("👂  at " + ip + ":8000 " + "& serving " + root)
+	fmt.Println("👂  at " + getIP() + ":8000 " + "& serving " + root)
 	panic(http.ListenAndServe(":8000", nil))
 }
 
