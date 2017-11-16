@@ -31,7 +31,7 @@ func main() {
 func getIP() string{
     out, err := exec.Command("bash", "-c", "ifconfig | pcregrep -M -o '^[^\\t:]+:([^\\n]|\\n\\t)*status: active' | egrep -o -m 1 'inet\\s*(.*)\\s*netmask' | cut -d' ' -f2 | tr -d '[:space:]'").Output()
     if err != nil {
-    	fmt.Printf("Error", err)
+		fmt.Printf("Error", err)
     }
     return string(out)
 }
