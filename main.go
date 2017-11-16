@@ -8,19 +8,24 @@ import (
 )
 
 func main() {
-    if len(os.Args) != 2 { 
-    	fmt.Println("Usage: ./serve directory-name\nExample: ./serve ~/files")
-    } else {
-    	root := os.Args[1]
-    	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    		file := root + "/" + r.URL.Path[1:]
-    		fmt.Println("downloading ", file)
-    		http.ServeFile(w, r, file)
-    	})
-		ip := getIP() 
-		fmt.Println("👂  @ " + ip + ":8000")
-    	panic(http.ListenAndServe(":8000", nil))
-    }
+	root := "."
+	if len(os.Args) == 1 {
+		root = "."
+	} else if len(os.Args) > 2 || os.Args[1] == "-h" || os.Args[1] == "help" || os.Args[1] == "--help" {
+		fmt.Println("Usage: ./serve directory-name\nExample: ./serve ~/files")
+		return
+	} else {
+		root = os.Args[1]
+	}
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		file := root + "/" + r.URL.Path[1:]
+		fmt.Println("downloading ", file)
+		http.ServeFile(w, r, file)
+	})
+	ip := getIP() 
+	fmt.Println("👂  at " + ip + ":8000 " + "& serving " + root)
+	panic(http.ListenAndServe(":8000", nil))
 }
 
 func getIP() string{
