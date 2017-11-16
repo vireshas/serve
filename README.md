@@ -1,5 +1,11 @@
 # serve
 
+Use pre built binaries for linux or mac in `builds` folders. Make it part of $PATH.  
+                              OR  
+go run main.go directory-name, from the cloned directory
+
+--------------------------------
+
 Usage: ./serve directory-name
 
 Example:
