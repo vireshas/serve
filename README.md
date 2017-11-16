@@ -14,7 +14,7 @@ Example:
 term1
   
   ./serve ~/files  
-  👂  @ 10.0.13.136:8000  
+  👂  at 10.0.13.136:8000 & serving .   
   
   downloading  /Users/viresh/files/  
   downloading  /Users/viresh/files/test1  
